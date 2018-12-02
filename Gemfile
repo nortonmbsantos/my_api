@@ -28,6 +28,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'rack-cors'
 
 gem 'figaro'
+gem 'pg'
 
 group :production do
   gem 'pg'

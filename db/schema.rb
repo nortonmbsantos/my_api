@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2018_12_02_151246) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -20,10 +23,11 @@ ActiveRecord::Schema.define(version: 2018_12_02_151246) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_books_on_author_id"
   end
 
+  add_foreign_key "books", "authors"
 end
